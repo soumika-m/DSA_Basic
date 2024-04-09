@@ -1,0 +1,14 @@
+1) Euclidean algorithm or division method =>
+---------------------------------------
+Algorithm Steps:
+   1. Start with the two numbers a and b for which you want to find the GCD.
+   2. Compute the remainder of a divided by b, denoted as r.
+   3. Replace a with b and b with r.
+   4. Repeat the above steps until the remainder r becomes zero.
+   5. The GCD is the non-zero value of b in the last iteration. / non zero value of remainder.
+
+2) LCM (Least Common Multiple) = >
+-------------------------------
+GCD(A,B)×LCM(A,B)=A×B 
+-> LCM(A,B) = (AXB)/GCD(A,B)
+
