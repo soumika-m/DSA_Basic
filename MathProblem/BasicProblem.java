@@ -214,6 +214,69 @@ public class BasicProblem {
         }
     }
 
+/* (7)
+ * Given a positive integer n, return the smallest positive integer that is a multiple of both 2 and n.
+ * T(c) -> O(n)
+ */
+    public static int smallestEvenMultiple(int n) {
+        int i = 1;
+        int j = 1;
+        // if multiple of 2 and multiple of n are not matching 
+        while(2*i != n*j)
+        {
+            // if multiple of 2 is greater than multiple of n, we will check for next multiple of n
+            if((2*i) > (n*j))
+            {
+                j++;
+            }
+            // if multiple of 2 is equal to multiple of n, that is the smallest integer
+            if((2*i) == (n*j))
+            {
+                return (2*i);
+            }
+            // we will check for next multiple of 2 in each iteration
+            i++;
+        }
+        // out of while loop means both multiples are matching
+        return (2*i);
+    }
+
+    /* 
+    * checking if number even or odd, and returing appropriate result
+    * T(c) -> O(1)
+     */
+    public static int smallestEvenMultipleEfficient(int n) {
+        // if n is even, smallest multiple of 2 and n will be n itself.
+        if(n % 2 == 0)
+        {
+            return n;
+        }
+        // if n is odd, smallest multiple of both 2 and n will be 2*n 
+        else{
+            return n*2;
+        }
+    }
+
+/* (8)
+ * Given two positive integers a and b, return the number of common factors of a and b.
+ * An integer x is a common factor of a and b if x divides both a and b.
+ * T(c) -> O(min(a,b)), space -> O(1)
+ */
+    public static int commonFactors(int a, int b) {
+        int min = Math.min(a,b);
+        int count = 0;
+        for(int i=1;i<=min;i++)
+        {
+            // finding common factors
+            if(a%i == 0 && b%i == 0)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
     public static void main(String args[])
     {
         int N = 12;
@@ -230,5 +293,10 @@ public class BasicProblem {
         System.out.println("Sum of digits is Palindrome Number? "+ N +" = "+  isDigitSumPalindrome(N));
         N = 2147483647;  // 2^31-1
         System.out.println("After adding digits of "+ N +" repeatedly this single digit generated = "+  addDigits(N));
+        N = 5;
+        System.out.println("Smallest Even Multiple of "+ N+ " = "+ smallestEvenMultiple(N));
+        System.out.println("Smallest Even Multiple (efficient) of "+ N+ " = "+ smallestEvenMultiple(N));
+        int a = 12, b = 6;  // factors are 1,2,3,6
+        System.out.println("Common Factor count of "+a+", "+b+" = "+commonFactors(a,b));
     }
 }
