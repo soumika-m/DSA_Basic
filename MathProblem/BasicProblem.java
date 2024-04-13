@@ -298,5 +298,6 @@ public class BasicProblem {
         System.out.println("Smallest Even Multiple (efficient) of "+ N+ " = "+ smallestEvenMultiple(N));
         int a = 12, b = 6;  // factors are 1,2,3,6
         System.out.println("Common Factor count of "+a+", "+b+" = "+commonFactors(a,b));
+
     }
 }

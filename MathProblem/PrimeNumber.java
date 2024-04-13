@@ -46,6 +46,7 @@ class PrimeNumber
         return 1;
     }
 
+ 
 /* (2)
  * Sum of all prime numbers between 1 and N.
  * https://www.geeksforgeeks.org/problems/sum-of-all-prime-numbers-between-1-and-n4404/1
