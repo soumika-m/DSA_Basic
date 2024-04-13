@@ -12,3 +12,52 @@ Algorithm Steps:
 GCD(A,B)×LCM(A,B)=A×B 
 -> LCM(A,B) = (AXB)/GCD(A,B)
 
+3) Armstrong Number =>
+--------------------
+An Armstrong number of three digits is a number such that the sum of the cubes of its digits is equal to the number itself.
+
+4) Palindrome Number =>
+-----------------------
+A Palindrome number is a number that stays the same when reversed. Example- 121 , 131 , 7 etc.
+
+5) Digital Root Method =>
+------------------------
+This formula provides a direct and efficient way to calculate the digital root of a number without having to iterate through its digits or perform repeated summation.
+
+dr(n)=n%9
+
+This formula calculates the digital root directly from the remainder when dividing n by 9.
+It will give the correct result for most cases but will produce 0 instead of 9 for numbers divisible by 9. We need to handle this case separately.
+----------------- 
+dr(n)=1+(n−1)%9
+
+This formula ensures that the result is always between 1 and 9.
+It handles the case when n is divisible by 9 correctly, giving a digital root of 9 instead of 0.
+
+Let's break down how the formula works:
+   1> Subtract 1 from the number n: n-1
+      This step shifts the range of possible remainders by 1, so that when we take the modulo operation with 9, we have remainders from 0 to 8 instead of 1 to 9.
+   2> Take the modulo 9 of the result: (n-1)%9
+      Taking modulo 9 ensures that we get a number between 0 and 8, which corresponds to the possible digital root values 1 to 9.
+   3> Add 1 to the result: 1 + (n-1)%9
+      This step ensures that we map the range of remainders from 0 to 8 back to the range of digital root values from 1 to 9.
+
+dr(38) = 1+ (38-1)%9 = 1 + 37%9 = 1+1 = 2
+
+5) Prime Number =>
+---------------
+A number which is only divisible by 1 and that number, is called prime number.
+If a number is not prime, it will have atleast one divisor <= sqrt(n), so instead of checking till that number(n), we can check till sqrt(n).
+1 and 0 are not prime.
+
+6) Sieve of Eratosthenes Algorithm =>
+----------------------------------------
+Finding all prime numbers between 1 and N(inclusive)
+
+Algorithm Steps:
+   1> Create a list of numbers: Create a list of consecutive integers from 2 to N, where N is the upper limit within which you want to find prime numbers.
+   2> Start with the first prime number p=2: Mark p (which is 2 initially) as a prime number.
+   3> Mark multiples of p as non-prime: Starting from p^2, mark all multiples of p as non-prime. Since p is prime, its multiples are composite numbers.
+   4> Move to the next unmarked number: Find the smallest unmarked number greater than p and set it as the new p. If no such number exists, stop. Otherwise, go to step 3.
+   5> Repeat: Repeat steps 3-4 until you have checked all numbers up to N.
+   6> Numbers left unmarked are prime: After the algorithm finishes, the unmarked numbers that remain in the list are prime numbers.
