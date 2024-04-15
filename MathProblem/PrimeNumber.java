@@ -50,7 +50,7 @@ class PrimeNumber
 /* (2)
  * Sum of all prime numbers between 1 and N.
  * https://www.geeksforgeeks.org/problems/sum-of-all-prime-numbers-between-1-and-n4404/1
- * T(c) -> O(n sqrt(n)) , space -> O(n)
+ * T(c) -> O(n*sqrt(n)) , space -> O(n)
  */
 
     public static long prime_Sum(int n)
@@ -88,7 +88,7 @@ class PrimeNumber
 
     /* 
      * Using sieve of eratosthenes algorithm
-     * T(c) -> O(n log(logn)), space -> O(n)
+     * T(c) -> O(n*log(logn)), space -> O(n)
      */
     public static long primeSumEfficient(int n)
     {
