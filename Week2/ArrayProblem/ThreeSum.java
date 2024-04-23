@@ -41,10 +41,72 @@ class ThreeSum {
         return result;
     }
 
+    /* T(c) ->  O(n log n + n^2) => O(n^2), S(c)-> O(no.of unique triplets) */
+    static List<List<Integer>> threeSum2(int[] nums) {
+        
+        /* Sort the array */
+        Arrays.sort(nums);
+        
+        List<List<Integer>> result = new ArrayList<>();
+        
+        /* Using two pointer */
+        for(int i=0;i<nums.length;i++)
+        {
+            /* remove duplicate elements of i */
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            
+            /* we will fix i, and move j and k when needed */
+            int j=i+1;
+            int k = nums.length-1;
+            while(j<k)
+            {
+                int sum = nums[i]+nums[j]+nums[k];
+                if(sum > 0)
+                {
+                    k--;
+                }
+                else if(sum < 0)
+                {
+                    j++;
+                }
+                else{
+                    List<Integer> temp = Arrays.asList(nums[i],nums[j],nums[k]);
+                    result.add(temp);
+                    
+                    j++;
+                    k--;
+                    
+                    /* ignore duplicates of j and k */
+                    while(j<k && nums[j]==nums[j-1])
+                    {
+                        j++;
+                    }
+                    while(j<k && nums[k]==nums[k+1])
+                    { 
+                        k--;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
         int arr[] = {-1,0,1,2,-1,-4};
         List<List<Integer>> result = threeSum(arr);
+        for(List<Integer> res:result)
+        {
+            for(int elem: res)
+            {
+                System.out.print(elem+" ");
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+
+        result = threeSum2(arr);
         for(List<Integer> res:result)
         {
             for(int elem: res)
