@@ -1,9 +1,10 @@
 class BubbleSort{
-
 /*
  * Given an Integer N and a list arr. Sort the array using bubble sort algorithm.
  * https://www.geeksforgeeks.org/problems/bubble-sort/1
- * T(c) -> O(n^2), S(c) -> O(1)
+ * T(c) -> O(n^2)  // Best case -> O(n)
+ * S(c) -> O(1)
+ * Stable sort
  */
 	static void bubbleSort(int arr[], int n)
     {
