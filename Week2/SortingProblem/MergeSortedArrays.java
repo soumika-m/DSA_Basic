@@ -46,6 +46,29 @@ class MergeSortedArrays{
         }
     }
 
+    /* 
+    * merge 2 arrays without using extra space
+    * T(c) -> O(m+n), S(c) -> O(1)
+    */
+    public void mergeInplace(int[] nums1, int m, int[] nums2, int n) {
+        int i = m-1;
+        int j = n-1;
+        int k = m+n-1;
+
+        // using 2 pointers algo
+        while(j>=0)
+        {
+            // compare elements from the end of both array and place larger element at the end of nums1 array
+            if(i>=0 && nums1[i] > nums2[j])
+            {
+                nums1[k--] = nums1[i--];
+            }
+            else{
+                nums1[k--] = nums2[j--];
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         int nums1[] = {1,2,3,0,0,0};
@@ -53,6 +76,12 @@ class MergeSortedArrays{
         int nums2[] = {2,5,6};
         int n = 3;
         merge(nums1, m, nums2, n);
+        for(int i=0;i<nums1.length;i++)
+        {
+            System.out.print(nums1[i]+" ");
+        }
+        System.out.println();
+        mergeInplace(nums1, m, nums2, n);
         for(int i=0;i<nums1.length;i++)
         {
             System.out.print(nums1[i]+" ");
