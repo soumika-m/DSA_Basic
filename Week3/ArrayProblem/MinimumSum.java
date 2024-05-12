@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class MinimumSum {
+
 /*
  * Given an array Arr of size N such that each element is from the range 0 to 9. Find the minimum possible sum 
  * of two numbers formed using the elements of the array. All digits in the given array must be used to form the 

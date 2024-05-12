@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 class SortArrayWithSquares{
+
 /*
  * Given a sorted array A containing N integers both positive and negative.
  * You need to create another array containing the squares of all the elements in A and return it in non-decreasing order.

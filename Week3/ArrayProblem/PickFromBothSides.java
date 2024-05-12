@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class PickFromBothSides {
+
 /*
  * Given an integer array A of size N.
  * You have to pick exactly B elements from either left or right end of the array A to get the maximum sum.
