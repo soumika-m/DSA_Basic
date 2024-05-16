@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class PrimeSum {
+public class PrimeSum1toN {
 
 /*
  * Sum of all prime numbers between 1 and N.

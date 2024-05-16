@@ -1,4 +1,4 @@
-public class PerfectSquare {
+public class CountSquare {
 /* 
 * count perfect square -> You are given a number N, you have to count the number of perfect squares less than N
 * https://www.geeksforgeeks.org/problems/count-squares3649/155
