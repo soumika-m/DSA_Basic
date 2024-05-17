@@ -56,7 +56,7 @@ public class FourSum {
      * T(c) -> O(N3*log(M)), where N = size of the array, M = no. of elements in the set.
      * S(c) -> O(2 * no. of the quadruplets)+O(N) , set data structure and a list to store the quads, set data structure to store the array elements.
      */
-    static List<List<Integer>> fourSum(int[] nums, int target) {
+    static List<List<Integer>> fourSumEfficient(int[] nums, int target) {
         int n = nums.length;
         
         // for storing unique arrays
@@ -96,12 +96,88 @@ public class FourSum {
         return result;
     }
 
+    /*
+     * Using 2 pointers approach
+     * T(c) -> O(nlogn) + O(n^2) * O(n) => O(n^3) , both the pointers k and l combined can run for approximately N times including the operation of skipping duplicates
+     * S(c) -> O(no. of quadruplets)
+     */
+    static List<List<Integer>> fourSumOptimal(int[] nums, int target) {
+        // sort the array
+        Arrays.sort(nums);
+        
+        int n = nums.length;
+        
+        List<List<Integer>> result = new ArrayList<>();
+        
+        // using 2 pointer approach
+        for(int i=0;i<n;i++)
+        {
+            // discard duplicates from considering again
+            if(i>0 && nums[i] == nums[i-1])
+            {
+                continue;
+            }
+            
+            for(int j=i+1;j<n;j++)
+            {
+                // dicard duplicates in j
+                if(j > i+1 && nums[j] == nums[j-1])
+                {
+                    continue;
+                }
+                
+                int k = j+1;
+                int l = n-1;
+                while(k < l)
+                {
+                    long sum = nums[i];
+                    sum += nums[j];
+                    sum += nums[k];
+                    sum += nums[l];
+                    
+                    if(sum < target)
+                    {
+                        k++;
+                    }
+                    else if(sum > target)
+                    {
+                        l--;
+                    }
+                    else{
+                        List<Integer> tempList = Arrays.asList(nums[i],nums[j],nums[k],nums[l]);
+                        result.add(tempList);
+                        k++;
+                        l--;
+                        
+                        // ignore duplicates in k and l due to unique quadruplets condition
+                        while(k<l && nums[k] == nums[k-1])
+                        {
+                            k++;
+                        }
+                        while(k<l && nums[l] == nums[l+1])
+                        {
+                            l--;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+        return result;
+    }
+
+
     public static void main(String[] args) {
         int arr[] = {1,0,-1,0,-2,2};
         int target = 0;
         /* [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]] */
-        List<List<Integer>> ans = fourSum(arr, target);
-        System.out.println(ans);
+        List<List<Integer>> ans1 = fourSum(arr, target);
+        System.out.println(ans1);
+        List<List<Integer>> ans2 = fourSumEfficient(arr, target);
+        System.out.println(ans2);
+        List<List<Integer>> ans3 = fourSumOptimal(arr, target);
+        System.out.println(ans3);
     }
     
 }

@@ -56,12 +56,40 @@ public class FindDuplicateNumber {
          
         // by default case, duplicate not found
         return -1;
-    } 
+    }
+    
+    /*
+     * Using floyd's tortoise and hare algo (cycle detection)
+     * T(c) -> O(n), S(c) -> O(1)
+     */
+    static int findDuplicateOptimal(int[] nums) {
+        int slow = nums[0];
+        int fast = nums[0];
+        
+        // move fast pointer 2 step and slow pointer 1 step until both meets at one point
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }
+        while(slow != fast);
+        
+        /* point fast pointer in the beginning and start to travarse again 
+         this  time both slow and fast pointer will go 1 step until both will meet again */
+        fast = nums[0];
+        while(slow != fast)
+        {
+            fast = nums[fast];
+            slow = nums[slow];
+        }
+        return fast;
+    }
+
 
     public static void main(String[] args) {
         int arr[] = {1,3,4,2,2};
         System.out.println("Duplicate = "+findDuplicate(arr));
         System.out.println("Duplicate = "+findDuplicateBetter(arr));
+        System.out.println("Duplicate = "+findDuplicateOptimal(arr));
     }
 
 }
