@@ -11,7 +11,7 @@ public class FindMissingRepeating {
         int missing = -1;
         int repeating = -1;
         // check for each number
-        for(int i=1;i<=n;i++)
+        for(int i=0;i<=n;i++)
         {
             int count = 0;
             // count occurance in array for that number
