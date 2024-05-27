@@ -42,15 +42,15 @@ public class TravarseMatrixSpirally {
             }
             
             // check if more column present
-            // if(left <= right)
-            // {
+            if(left <= right)
+            {
                 // going down to top
                 for(int i=down;i>=top;i--)
                 {
                     result.add(matrix[i][left]);
                 }
                 left++;
-            // }
+            }
         }
         return result;
     }
