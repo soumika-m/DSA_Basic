@@ -26,7 +26,7 @@ public class FindMissingRepeating {
             // find missing or repeating number
             if(count == 0)
             {
-                missing = i;;
+                missing = i;
             }
             else if(count == 2)
             {
