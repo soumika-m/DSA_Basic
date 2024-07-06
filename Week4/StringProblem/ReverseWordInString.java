@@ -14,8 +14,16 @@ public class ReverseWordInString {
     static String reverseWords(String s) {
         // discard leading and trailing space
         String[] word = s.trim().split(" +");
-        // convert string array into list
-        Collections.reverse(Arrays.asList(word));
+        // reverse those array of words
+        int start = 0, end = word.length-1;
+        while(start<end)
+        {
+            String temp = word[start];
+            word[start] = word[end];
+            word[end] = temp;
+            start++;
+            end--;
+        }
         return String.join(" ", word);
     }
 
