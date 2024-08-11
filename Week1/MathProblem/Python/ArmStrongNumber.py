@@ -24,5 +24,23 @@ def armstrongNumber (n):
         return "false"
     
 
+def armstrongNumber2 (n):
+    """ 
+        T(c) -> O(1), S(c) -> O(1)
+    """
+    first_digit = n // 100
+    second_digit = (n%100) // 10
+    third_digit = n % 10
+    
+    total = first_digit ** 3 + second_digit ** 3 + third_digit **3
+    
+    if total == n:
+        return "true"
+    else:
+        return "false"
+    
+
 N = 153
 print("Armstrong Number?", N , "=", armstrongNumber(N))
+N = 372
+print("Armstrong Number?", N , "=", armstrongNumber2(N))
