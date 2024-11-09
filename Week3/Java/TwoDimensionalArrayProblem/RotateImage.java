@@ -90,11 +90,13 @@ class RotateImage{
             {9, 10, 11, 12},
             {13, 14, 15,16}
         };
+        printMatrix(matrix1);
         rotate(matrix1);
         printMatrix(matrix1);
 
         int matrix2[][] = {{1,2,3},{4,5,6},{7,8,9}};
-        rotate(matrix2);
+        printMatrix(matrix2);
+        rotateEfficient(matrix2);
         printMatrix(matrix2);
     }
 }

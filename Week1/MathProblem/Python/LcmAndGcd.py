@@ -11,12 +11,12 @@ def lcmAndGcd(A , B):
     divident = max(A, B)
     
     # using euclidean algorithm or division method to find GCD
-    while divident % divisor != 0:
+    while divisor != 0:
         remainder = divident % divisor
         divident = divisor
         divisor = remainder
         
-    gcd = divisor
+    gcd = divident
     
     # using GCD(A,B) * LCM(A,B) = A*B for calculating LCM
     lcm = (A * B) // gcd
@@ -24,5 +24,25 @@ def lcmAndGcd(A , B):
     return lcm, gcd
 
 
+def lcmAndGcd2(a , b):
+    """ T(c) -> O(log(min(a,b))) , S(c) -> O(log(min(a,b))) """
+    
+    gcd = gcdRecursive(a, b)
+    
+    # using formula lcm * gcd = a* b
+    lcm = (a*b) // gcd
+    
+    return [lcm, gcd]
+        
+def gcdRecursive(a, b):
+    # using euclidean algo
+    if b == 0:
+        return a
+
+    return gcdRecursive(b, a%b)
+
+
 arr = lcmAndGcd(14, 8)
+print(f"LCM = {arr[0]} and GCD = {arr[1]}")
+arr = lcmAndGcd2(5, 0)
 print(f"LCM = {arr[0]} and GCD = {arr[1]}")

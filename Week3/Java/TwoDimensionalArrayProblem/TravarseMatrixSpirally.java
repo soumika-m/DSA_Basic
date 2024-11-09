@@ -5,7 +5,7 @@ public class TravarseMatrixSpirally {
 /*
  * Given a matrix of size r*c. Traverse the matrix in spiral form.
  * https://www.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1
- * T(c) -> O(r*c), S(c) -> O(n) // for storing element in answer array 
+ * T(c) -> O(r*c), S(c) -> O(r*c) // for storing element in answer array 
  */
 
     static ArrayList<Integer> spirallyTraverse(int matrix[][], int r, int c)

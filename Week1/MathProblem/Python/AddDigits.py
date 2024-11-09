@@ -8,14 +8,13 @@ def addDigits(num):
     """ T(c) -> O(log(n)^2), space -> O(1) """
     # untill number becomes 1 digit number
     while num > 9:
-        n = num
         total = 0
         
         # add all digits
-        while n > 0:
-            digit = n % 10
+        while num > 0:
+            digit = num % 10
             total += digit
-            n //= 10
+            num //= 10
         
         num = total
 

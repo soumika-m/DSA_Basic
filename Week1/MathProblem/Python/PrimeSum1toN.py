@@ -4,7 +4,7 @@
     https://www.geeksforgeeks.org/problems/sum-of-all-prime-numbers-between-1-and-n4404/1
 """
 
-# giving time limit error
+""" giving time limit error """
 def prime_Sum(n):
     """ T(c) -> O(n * sqrt(n)), S(c) -> O(1) """
     # Code here
@@ -29,7 +29,7 @@ def isPrime(num):
     return True
 
 
-# using sieve of eratosthenes algo
+""" using sieve of eratosthenes algo """ 
 def prime_Sum_Efficient(n):
     """ T(c) -> O(n * log(logn)), S(c) -> O(n) """
     if n<=1:
