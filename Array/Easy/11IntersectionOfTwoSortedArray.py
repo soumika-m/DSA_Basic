@@ -4,8 +4,10 @@ In insertion duplicate elements are allowed
 
 def findIntersection(arr1, arr2):
     """ T(c) -> O(m * n), S(c) -> O(n) + O(m+n) // for returning result array """
+
     resultArr = []
     visitedArr = [0]*len(arr2)
+
     for i in range(len(arr1)):
         for j in range(len(arr2)):
             # if element of arr2 is not matched with some other element of arr1

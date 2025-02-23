@@ -4,6 +4,7 @@ https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1
 
 def findUnion(a, b):
     """ T(c) -> O((m+n)log(m+n)) , S(c) -> O(m+n)"""
+
     freq = {}
     union = []
     
@@ -21,6 +22,7 @@ def findUnion(a, b):
 
 def findUnion2(a,b):
     """ T(c) -> O((m+n)log(m+n)) , S(c) -> O(m+n)"""
+
     st = set()
     union = []
     
@@ -38,15 +40,17 @@ def findUnion2(a,b):
 
 def findUnionEfficient(a,b):
     """ T(c) -> O(m+n), S(c) -> O(m+n) // for returning the array """
+
     # using 2 pointers
     i = 0
     j = 0
     
     unionArr = []
 
+    # if elements present in both array
     while i<len(a) and j<len(b):
         if a[i] <= b[j]:
-            # before inserting new element check if it is matching with last element in array
+            # before inserting new element check if it is matching with last element in array, then don't insert
             if len(unionArr) == 0 or unionArr[-1] != a[i]:
                 unionArr.append(a[i])
             i += 1
@@ -57,14 +61,22 @@ def findUnionEfficient(a,b):
     
     # if any elements present in array a    
     while i<len(a):
-        if unionArr[-1] != a[i]:
+        # compare with last element
+        if len(unionArr) == 0 or unionArr[-1] != a[i]:
             unionArr.append(a[i])
         i += 1
     
     # if any elements present in array b
     while j<len(b):
-        if unionArr[-1] != b[j]:
+        # compare with last element
+        if len(unionArr) == 0 or unionArr[-1] != b[j]:
             unionArr.append(b[j])
         j += 1
             
     return unionArr
+
+
+if __name__ == "__main__":
+    arr1 = [1, 2, 3, 4, 5]
+    arr2 = [1, 2, 3, 6, 7]
+    print(findUnionEfficient(arr1, arr2))

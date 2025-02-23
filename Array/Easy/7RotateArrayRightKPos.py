@@ -47,7 +47,7 @@ def rotateOptimal(nums, k):
     # reverse last part n-k elements
     reverse_array_inplace(nums, k, n-1)    
     
-def reverse_array_inplace(self, nums, start, end):
+def reverse_array_inplace(nums, start, end):
     while start <= end:
         nums[start], nums[end] = nums[end], nums[start]
         start += 1
