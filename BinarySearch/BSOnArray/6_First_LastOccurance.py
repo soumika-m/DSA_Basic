@@ -11,11 +11,14 @@ def find_first_last_occurance(nums: List[int], target: int) -> List[int]:
     first = -1
     last = -1
 
-    # iterate through array, find first and last occurance index
+    # iterate through array, if target is found, update first and last
     for i in range(len(nums)):
         if nums[i] == target:
+            # first will only update when first time element is found
             if first == -1:
                 first = i
+            
+            # last will always update
             last = i
 
     return [first, last]
@@ -87,6 +90,8 @@ def first_occurance(nums, target):
     low = 0
     high = len(nums) - 1
 
+    # without using lower bound and upper bound
+    # find first occurance
     while low <= high:
         mid = (low + high) // 2
 
@@ -108,6 +113,8 @@ def last_occurance(nums, target):
     low = 0
     high = len(nums) - 1
 
+    # without using lower bound and upper bound
+    # find last occurance
     while low <= high:
         mid = (low + high) // 2
 
@@ -126,6 +133,8 @@ def last_occurance(nums, target):
 def find_first_last_occurance_better2(nums, target):
     """ T(C) -> O(2logn), S(C) -> O(1) """
 
+    # without using lower bound and upper bound
+
     # first occurance
     first = first_occurance(nums, target)
 
@@ -138,7 +147,11 @@ def find_first_last_occurance_better2(nums, target):
 def count_occurance(nums, target):
     """ T(C) -> O(2logn), S(C) -> O(1) """
 
+    # without using lower bound and upper bound
+
+    # find first occurance
     first = first_occurance(nums, target)
+    # find last occurance
     last = last_occurance(nums, target)
 
     if first == -1:

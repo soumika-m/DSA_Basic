@@ -10,22 +10,27 @@ def search(nums, target):
 
     while low <= high:
         mid = (low + high) // 2
+        # if element found at mid
         if nums[mid] == target:
             return mid
         
-        # check if left part is sorted
+        # identify which half is sorted between left and right
         if nums[low] <= nums[mid]:
             # check if number is present in left sorted part
             if nums[low] <= target < nums[mid]:
+                # element can be in left half
                 high = mid - 1
             else:
+                # element can be in right half
                 low = mid + 1
         # check if right part is sorted
         else:
             # check if number is present in right sorted part
             if nums[mid] < target <= nums[high]:
+                # element can be on right half
                 low = mid + 1
             else:
+                # element can be in left half
                 high = mid - 1
 
     return -1
